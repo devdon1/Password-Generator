@@ -1,0 +1,42 @@
+﻿@model FirstPWA.Models.Password
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h4 class="display-4">Password generator</h4>
+        <p class="lead">Generates a password between 8 and 100 alphanumeric and special characters.</p>
+    </div>
+</div>
+
+<form method="post" asp-action="GetPassword">
+    <label for="passwordLength">Choose your password length:</label>
+    <select class="form-control" id="passwordLength" name="passwordLength">
+        @for (int i = 8; i <= 100; i++)
+        {
+            <option>@i</option>
+        }
+    </select>
+    <br />
+    <button type="submit" class="btn btn-primary btn-lg btn-block">GENERATE</button>
+</form>
+
+@{
+    if (!String.IsNullOrEmpty(Model.PasswordString))
+    {
+        <br />
+        <h6 class="text-center">Your password is:</h6>
+        <br />
+        <input class="form-control text-center text-danger" type="text" value="@Model.PasswordString" id="passwordString" readonly>
+        <button class="btn btn-outline-primary btn-lg btn-block" onclick="copyTextToClipBoard()">Copy to clipboard</button>
+    }
+}
+
+<script>
+
+    function copyTextToClipBoard() {
+        var copyText = document.getElementById("passwordString");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+    }
+
+</script>

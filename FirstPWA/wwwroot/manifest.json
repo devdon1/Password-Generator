@@ -1,0 +1,17 @@
+{
+  "name": "Password Generator",
+  "short_name": "Password Generator",
+  "description": "Generates a password between 8 and 100 alphanumeric and special characters.",
+  "icons": [
+    {
+      "src": "/img/android-chrome-192x192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/android-chrome-512x512.png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "standalone",
+  "start_url": "/"
+}
